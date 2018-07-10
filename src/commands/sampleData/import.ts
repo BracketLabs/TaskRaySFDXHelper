@@ -333,6 +333,7 @@ export default class Import extends SfdxCommand {
     conn.maxRequest = 5000;
     const identity = await conn.identity();
     currentUserId = identity.user_id;
+    //TODO: get sample users, opps, accounts, insert trUnassigned queue
     const unassignedQueue = await conn.query(
       "SELECT Id,Name FROM Group WHERE Type = 'Queue' AND DeveloperName = 'trUnassigned'"
     );
