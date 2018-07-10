@@ -1,5 +1,5 @@
 {
-  "commandDescription": "Prints a greeting and your org id(s)!",
+  "commandDescription": "Set your scratch org up for TaskRay",
   "nameFlagDescription": "name to print",
   "forceFlagDescription": "example boolean flag",
   "errorNoOrgResults": "No results found for the organization '%s'."

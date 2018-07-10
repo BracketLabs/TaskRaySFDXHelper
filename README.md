@@ -12,33 +12,29 @@ Sets up your scratch org for TaskRay development
 [![License](https://img.shields.io/npm/l/TaskRaySFDXHelper.svg)](https://github.com/bracketlabs/TaskRaySFDXHelper/blob/master/package.json)
 
 <!-- toc -->
-
-- [TaskRaySFDXHelper](#task-ray-helper)
-- [Debugging your plugin](#debugging-your-plugin)
-  <!-- tocstop -->
+* [TaskRaySFDXHelper](#task-ray-sfdx-helper)
+* [Debugging your plugin](#debugging-your-plugin)
+<!-- tocstop -->
     <!-- install -->
     <!-- usage -->
-
 ```sh-session
 $ npm install -g TaskRaySFDXHelper
 $ TaskRaySFDXHelper COMMAND
 running command...
 $ TaskRaySFDXHelper (-v|--version|version)
-TaskRaySFDXHelper/0.0.0 darwin-x64 node-v8.11.3
+TaskRaySFDXHelper/0.0.0 darwin-x64 node-v8.9.4
 $ TaskRaySFDXHelper --help [COMMAND]
 USAGE
   $ TaskRaySFDXHelper COMMAND
 ...
 ```
-
 <!-- usagestop -->
 <!-- commands -->
-
-- [`TaskRaySFDXHelper sampleData:import [FILE]`](#task-ray-sfdx-helper-sample-dataimport-file)
+* [`TaskRaySFDXHelper sampleData:import [FILE]`](#task-ray-sfdx-helper-sample-dataimport-file)
 
 ## `TaskRaySFDXHelper sampleData:import [FILE]`
 
-Prints a greeting and your org id(s)!
+Set your scratch org up for TaskRay
 
 ```
 USAGE
@@ -54,16 +50,15 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)   logging level for this command invocation
 
 EXAMPLES
-  $ sfdx sampleData:import --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
+  $ sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
      Hello world! This is org: MyOrg and I will be around until Tue Mar 20 2018!
      My hub org id is: 00Dxx000000001234
-
-  $ sfdx sampleData:import --name myname --targetusername myOrg@example.com
+  
+  $ sfdx hello:org --name myname --targetusername myOrg@example.com
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [src/commands/sampleData/import.ts](https://github.com/bracketlabs/TaskRaySFDXHelper/blob/v0.0.0/src/commands/sampleData/import.ts)_
-
+_See code: [src/commands/sampleData/import.ts](https://github.com/bracketlabs/TaskRayHelper/blob/v0.0.0/src/commands/sampleData/import.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 
