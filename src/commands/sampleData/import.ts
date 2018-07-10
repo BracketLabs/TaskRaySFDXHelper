@@ -109,7 +109,12 @@ export default class Import extends SfdxCommand {
       try {
         //sampleData.forEach(async sampleDataObj => {
         for (const sampleDataObj of sampleData) {
-          console.log("waiting for insert for", sampleDataObj.objectName);
+          console.log(
+            "Inserting " +
+              sampleDataObj.data.length +
+              " " +
+              sampleDataObj.objectName
+          );
           await this.parseAndInsertObject(sampleDataObj);
         }
         //});
@@ -128,10 +133,8 @@ export default class Import extends SfdxCommand {
       let dataToInsert = true;
       let dataArr = sampleDataObj;
       let i = 0;
-      while (dataToInsert === true && i < 5) {
+      while (dataToInsert === true && i < 10) {
         let parsedObjects = this.resolveVariablesForObject(dataArr);
-
-        //console.log("INSERT:", parsedObjects);
         if (parsedObjects.objDataToInsert) {
           try {
             const results = await conn
@@ -142,7 +145,6 @@ export default class Import extends SfdxCommand {
                 const oldId = parsedObjects.objDataToInsert[index]["Id"];
                 const newId = resultObj.id;
                 variableNameToSFIdMapping[oldId] = newId;
-                //console.log(oldId, newId, variableNameToSFIdMapping);
               }
             });
           } catch (e) {
@@ -161,7 +163,7 @@ export default class Import extends SfdxCommand {
         }
         i++;
       }
-      console.log("finishing", sampleDataObj.objectName);
+      console.log("completed insert for " + sampleDataObj.objectName);
       resolve();
     });
   }
@@ -327,8 +329,8 @@ export default class Import extends SfdxCommand {
 
   public async run(): Promise<core.AnyJson> {
     conn = this.org.getConnection();
-    conn.maxRequest = 1000;
-    console.log(conn);
+    //INcreasing the number of requests we can make so all the creates work
+    conn.maxRequest = 5000;
     const identity = await conn.identity();
     currentUserId = identity.user_id;
     const unassignedQueue = await conn.query(
