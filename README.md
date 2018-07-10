@@ -1,22 +1,24 @@
-# TaskRayHelper
+# TaskRaySFDXHelper
 
 Sets up your scratch org for TaskRay development
 
-[![Version](https://img.shields.io/npm/v/TaskRayHelper.svg)](https://npmjs.org/package/TaskRayHelper)
-[![CircleCI](https://circleci.com/gh/bracketlabs/TaskRayHelper/tree/master.svg?style=shield)](https://circleci.com/gh/bracketlabs/TaskRayHelper/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/bracketlabs/TaskRayHelper?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/TaskRayHelper/branch/master)
-[![Codecov](https://codecov.io/gh/bracketlabs/TaskRayHelper/branch/master/graph/badge.svg)](https://codecov.io/gh/bracketlabs/TaskRayHelper)
-[![Greenkeeper](https://badges.greenkeeper.io/bracketlabs/TaskRayHelper.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/bracketlabs/TaskRayHelper/badge.svg)](https://snyk.io/test/github/bracketlabs/TaskRayHelper)
-[![Downloads/week](https://img.shields.io/npm/dw/TaskRayHelper.svg)](https://npmjs.org/package/TaskRayHelper)
-[![License](https://img.shields.io/npm/l/TaskRayHelper.svg)](https://github.com/bracketlabs/TaskRayHelper/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/TaskRaySFDXHelper.svg)](https://npmjs.org/package/TaskRaySFDXHelper)
+[![CircleCI](https://circleci.com/gh/bracketlabs/TaskRaySFDXHelper/tree/master.svg?style=shield)](https://circleci.com/gh/bracketlabs/TaskRaySFDXHelper/tree/master)
+[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/bracketlabs/TaskRaySFDXHelper?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/TaskRaySFDXHelper/branch/master)
+[![Codecov](https://codecov.io/gh/bracketlabs/TaskRaySFDXHelper/branch/master/graph/badge.svg)](https://codecov.io/gh/bracketlabs/TaskRaySFDXHelper)
+[![Greenkeeper](https://badges.greenkeeper.io/bracketlabs/TaskRaySFDXHelper.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/bracketlabs/TaskRaySFDXHelper/badge.svg)](https://snyk.io/test/github/bracketlabs/TaskRaySFDXHelper)
+[![Downloads/week](https://img.shields.io/npm/dw/TaskRaySFDXHelper.svg)](https://npmjs.org/package/TaskRaySFDXHelper)
+[![License](https://img.shields.io/npm/l/TaskRaySFDXHelper.svg)](https://github.com/bracketlabs/TaskRaySFDXHelper/blob/master/package.json)
 
 <!-- toc -->
-* [TaskRayHelper](#task-ray-helper)
-* [Debugging your plugin](#debugging-your-plugin)
-<!-- tocstop -->
-  <!-- install -->
-  <!-- usage -->
+
+- [TaskRaySFDXHelper](#task-ray-helper)
+- [Debugging your plugin](#debugging-your-plugin)
+  <!-- tocstop -->
+    <!-- install -->
+    <!-- usage -->
+
 ```sh-session
 $ npm install -g TaskRaySFDXHelper
 $ TaskRaySFDXHelper COMMAND
@@ -28,9 +30,11 @@ USAGE
   $ TaskRaySFDXHelper COMMAND
 ...
 ```
+
 <!-- usagestop -->
 <!-- commands -->
-* [`TaskRaySFDXHelper sampleData:import [FILE]`](#task-ray-sfdx-helper-sample-dataimport-file)
+
+- [`TaskRaySFDXHelper sampleData:import [FILE]`](#task-ray-sfdx-helper-sample-dataimport-file)
 
 ## `TaskRaySFDXHelper sampleData:import [FILE]`
 
@@ -50,15 +54,16 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)   logging level for this command invocation
 
 EXAMPLES
-  $ sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
+  $ sfdx sampleData:import --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
      Hello world! This is org: MyOrg and I will be around until Tue Mar 20 2018!
      My hub org id is: 00Dxx000000001234
-  
-  $ sfdx hello:org --name myname --targetusername myOrg@example.com
+
+  $ sfdx sampleData:import --name myname --targetusername myOrg@example.com
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [src/commands/sampleData/import.ts](https://github.com/bracketlabs/TaskRayHelper/blob/v0.0.0/src/commands/sampleData/import.ts)_
+_See code: [src/commands/sampleData/import.ts](https://github.com/bracketlabs/TaskRaySFDXHelper/blob/v0.0.0/src/commands/sampleData/import.ts)_
+
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 
@@ -66,20 +71,20 @@ _See code: [src/commands/sampleData/import.ts](https://github.com/bracketlabs/Ta
 
 We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
 
-To debug the `hello:org` command:
+To debug the `sampleData:import` command:
 
 1.  Start the inspector
 
 If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch:
 
 ```sh-session
-$ sfdx hello:org -u myOrg@example.com --dev-suspend
+$ sfdx sampleData:import -u myOrg@example.com --dev-suspend
 ```
 
 Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
 
 ```sh-session
-$ NODE_OPTIONS=--inspect-brk bin/run hello:org -u myOrg@example.com
+$ NODE_OPTIONS=--inspect-brk bin/run sampleData:import -u myOrg@example.com
 ```
 
 2.  Set some breakpoints in your command code
