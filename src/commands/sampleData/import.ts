@@ -1,4 +1,5 @@
-import { core, flags, SfdxCommand } from "@salesforce/command";
+import { core,flags, SfdxCommand } from "@salesforce/command";
+import {AnyJson} from '@salesforce/ts-types';
 import * as moment from "moment";
 const { StringStream } = require("scramjet");
 const request = require("request");
@@ -327,7 +328,7 @@ export default class Import extends SfdxCommand {
     return false;
   }
 
-  public async run(): Promise<core.AnyJson> {
+  public async run(): Promise<AnyJson> {
     conn = this.org.getConnection();
     //INcreasing the number of requests we can make so all the creates work
     conn.maxRequest = 5000;
