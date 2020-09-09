@@ -6,12 +6,11 @@ sfdx plugin for loading sample data to scratch org
 git clone git@github.com:BracketLabs/TaskRaySFDXHelper.git
 cd TaskRaySFDXHelper
 npm install
-```
-## Usage
-Add to sfdx as a plugin:
-```sh
+#add plugin to sfdx
 sfdx plugins:link .
 ```
+## Usage
+
 Run plug in:
 ```sh
 sfdx sampleData:import -u authedOrgAlias
